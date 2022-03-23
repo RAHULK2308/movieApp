@@ -1,0 +1,31 @@
+<div>
+    <h1>Movie App</h1>
+  <section>
+    <input type="text" placeholder="search year " [(ngModel)]="searchItem">
+    <input type="text" placeholder="search rating " [(ngModel)]="option">
+    <select name="ordermethod" id="ordermethod">
+      <option>Asc</option>
+      <option>Dsc</option>
+    </select>
+  </section>
+  </div>
+
+<table>
+    <thead>
+        
+        <th>id</th>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Rating</th>
+    
+    </thead>
+    <tbody *ngFor="let movie of MovieList.results | filter: searchItem | rating:option  ">
+        <tr>
+            <td>{{movie.id}}</td>
+            <td>{{movie.title}}</td>
+            <td>{{movie.release_date}}</td>
+            <td>{{movie.vote_average}}</td>
+        </tr>
+    </tbody>
+
+</table>
